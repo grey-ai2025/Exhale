@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exhale - Join the Waitlist</title>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Smoke/Mist Effect -->
+    <div class="smoke-container">
+        <div class="smoke"></div>
+        <div class="smoke"></div>
+        <div class="smoke"></div>
+    </div>
+
+    <div class="ambient-glow" id="glow"></div>
+
+    <div class="container">
+        <div class="content">
+            <div class="badge">Early Access</div>
+            <h1>
+                Meet<br>
+                <span>Exhale</span>
+            </h1>
+            <p class="description">
+                Your AI-powered email companion. Intelligently search, summarize,
+                and interact with your inbox using natural language. Never miss
+                what matters most.
+            </p>
+
+            <form class="waitlist-form" id="waitlistForm">
+                <div class="input-group">
+                    <div class="input-wrapper">
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">Join Waitlist</button>
+                </div>
+                <p class="form-note">No spam, ever. Unsubscribe anytime.</p>
+                <div class="success-message" id="successMessage">
+                    ✓ You're on the list! We'll be in touch soon.
+                </div>
+            </form>
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-value" id="waitlistCount">2,847<span>+</span></div>
+                    <div class="stat-label">On waitlist</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">Q1<span>2025</span></div>
+                    <div class="stat-label">Launch date</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="icons-container">
+            <div class="icons-wrapper">
+                <!-- Glass panel -->
+                <div class="glass-panel"></div>
+
+                <!-- Orbit ring -->
+                <div class="orbit-ring">
+                    <div class="orbit-dot"></div>
+                    <div class="orbit-dot"></div>
+                    <div class="orbit-dot"></div>
+                </div>
+
+                <!-- Central logo -->
+                <div class="central-icon">
+                    <img src="assets/images/logo.png" alt="Exhale Logo">
+                </div>
+
+                <!-- Floating icons around -->
+                <div class="floating-icon icon-1">
+                    <i data-lucide="mail"></i>
+                </div>
+                <div class="floating-icon icon-2 accent">
+                    <i data-lucide="calendar"></i>
+                </div>
+                <div class="floating-icon icon-3">
+                    <i data-lucide="search"></i>
+                </div>
+                <div class="floating-icon icon-4 accent">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <div class="floating-icon icon-5">
+                    <i data-lucide="inbox"></i>
+                </div>
+                <div class="floating-icon icon-6">
+                    <i data-lucide="file-text"></i>
+                </div>
+                <div class="floating-icon icon-7 accent">
+                    <i data-lucide="bell"></i>
+                </div>
+                <div class="floating-icon icon-8">
+                    <i data-lucide="clock"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
