@@ -17,18 +17,54 @@ let introComplete = false;
 // Initialize on DOM Load
 // ===========================================
 document.addEventListener('DOMContentLoaded', () => {
-    initThreeScene();
-    initAmbientGlow();
-    initFormHandler();
     initThemeToggle();
+    initFormHandler();
+    initAmbientGlow();
 
-    // Start intro reveal sequence after a short delay
-    setTimeout(() => {
-        startIntroReveal();
-    }, 500);
+    // Initialize Three.js scene
+    initThreeScene();
+
+    // Start the loader sequence
+    startLoaderSequence();
 
     animate();
 });
+
+// ===========================================
+// Loader Sequence
+// ===========================================
+function startLoaderSequence() {
+    const loaderOverlay = document.getElementById('loaderOverlay');
+
+    // Minimum loader display time for smooth UX
+    const minLoaderTime = 1500;
+    const startTime = Date.now();
+
+    // Wait for assets to be ready (or minimum time)
+    function checkReady() {
+        const elapsed = Date.now() - startTime;
+        const remaining = Math.max(0, minLoaderTime - elapsed);
+
+        setTimeout(() => {
+            // Fade out loader
+            loaderOverlay.classList.add('fade-out');
+
+            // After loader fades, start smoke reveal
+            setTimeout(() => {
+                loaderOverlay.style.display = 'none';
+                startIntroReveal();
+            }, 600);
+        }, remaining);
+    }
+
+    // Check if Three.js scene is initialized
+    if (renderer) {
+        checkReady();
+    } else {
+        // Fallback: just use timer
+        setTimeout(checkReady, 100);
+    }
+}
 
 // ===========================================
 // Theme Toggle (Dark Mode)
