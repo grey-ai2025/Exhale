@@ -1043,6 +1043,8 @@ body.dark-mode .intro-overlay.dissipating {
 /* ===========================================
    Mobile Responsive
    =========================================== */
+
+/* Tablet */
 @media (max-width: 1024px) {
     .container {
         text-align: center;
@@ -1051,7 +1053,7 @@ body.dark-mode .intro-overlay.dissipating {
     }
 
     .content {
-        padding-left: 0;
+        padding: 3rem 3rem;
     }
 
     .description {
@@ -1061,10 +1063,331 @@ body.dark-mode .intro-overlay.dissipating {
 
     .stats {
         justify-content: center;
+        gap: 3rem;
     }
 
     .input-group {
         flex-direction: column;
+    }
+
+    .ambient-glow {
+        width: 500px;
+        height: 500px;
+    }
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem 1.5rem;
+    }
+
+    .content {
+        padding: 2.5rem 2rem;
+        border-radius: 24px;
+    }
+
+    h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        margin-bottom: 1.25rem;
+    }
+
+    .badge {
+        padding: 0.5rem 1rem;
+        font-size: 0.6rem;
+        margin-bottom: 2rem;
+    }
+
+    .description {
+        font-size: 0.95rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+    }
+
+    .waitlist-form {
+        max-width: 100%;
+    }
+
+    .input-wrapper input {
+        padding: 1rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .submit-btn {
+        padding: 1rem 2rem;
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    .stats {
+        gap: 2.5rem;
+        margin-top: 2.5rem;
+        padding-top: 2rem;
+    }
+
+    .stat-value {
+        font-size: 1.75rem;
+    }
+
+    .stat-label {
+        font-size: 0.6rem;
+    }
+
+    .theme-toggle {
+        top: 1rem;
+        right: 1rem;
+        padding: 0.5rem 1rem;
+        gap: 0.5rem;
+    }
+
+    .theme-toggle-track {
+        width: 40px;
+        height: 22px;
+    }
+
+    .theme-toggle-thumb {
+        width: 16px;
+        height: 16px;
+    }
+
+    body.dark-mode .theme-toggle-thumb {
+        left: 21px;
+    }
+
+    .theme-toggle-icon {
+        font-size: 0.9rem;
+    }
+
+    .ambient-glow {
+        width: 350px;
+        height: 350px;
+    }
+
+    .loader-ring {
+        width: 60px;
+        height: 60px;
+    }
+
+    .loader-text {
+        font-size: 1.25rem;
+    }
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+    .container {
+        padding: 1.5rem 1rem;
+    }
+
+    .content {
+        padding: 2rem 1.5rem;
+        border-radius: 20px;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 14vw, 3rem);
+        margin-bottom: 1rem;
+        letter-spacing: 0.05em;
+    }
+
+    .badge {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.55rem;
+        margin-bottom: 1.5rem;
+        gap: 0.5rem;
+    }
+
+    .badge::before {
+        width: 5px;
+        height: 5px;
+    }
+
+    .description {
+        font-size: 0.875rem;
+        margin-bottom: 2rem;
+        line-height: 1.65;
+    }
+
+    .input-group {
+        padding: 2px;
+        border-radius: 14px;
+    }
+
+    .input-group::before {
+        border-radius: 12px;
+    }
+
+    .input-wrapper input {
+        padding: 0.9rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 12px;
+    }
+
+    .submit-btn {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.75rem;
+        border-radius: 12px;
+    }
+
+    .stats {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+
+    .stats::before {
+        width: 120px;
+    }
+
+    .stat-value {
+        font-size: 1.5rem;
+    }
+
+    .stat-label {
+        font-size: 0.55rem;
+    }
+
+    .theme-toggle {
+        top: 0.75rem;
+        right: 0.75rem;
+        padding: 0.4rem 0.75rem;
+        gap: 0.4rem;
+    }
+
+    .theme-toggle-track {
+        width: 36px;
+        height: 20px;
+    }
+
+    .theme-toggle-thumb {
+        width: 14px;
+        height: 14px;
+    }
+
+    body.dark-mode .theme-toggle-thumb {
+        left: 19px;
+    }
+
+    .theme-toggle-icon {
+        font-size: 0.8rem;
+    }
+
+    .success-message {
+        padding: 0.9rem 1.25rem;
+        font-size: 0.8rem;
+        border-radius: 12px;
+    }
+
+    .ambient-glow {
+        width: 280px;
+        height: 280px;
+        filter: blur(40px);
+    }
+
+    .loader-ring {
+        width: 50px;
+        height: 50px;
+    }
+
+    .loader-text {
+        font-size: 1.1rem;
+    }
+
+    .smoke {
+        filter: blur(30px);
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 360px) {
+    .container {
+        padding: 1rem 0.75rem;
+    }
+
+    .content {
+        padding: 1.5rem 1.25rem;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    .badge {
+        font-size: 0.5rem;
+        padding: 0.4rem 0.75rem;
+    }
+
+    .description {
+        font-size: 0.8rem;
+    }
+
+    .input-wrapper input {
+        padding: 0.8rem 0.9rem;
+        font-size: 0.75rem;
+    }
+
+    .submit-btn {
+        padding: 0.8rem 1.25rem;
+        font-size: 0.7rem;
+    }
+
+    .theme-toggle {
+        padding: 0.35rem 0.6rem;
+    }
+
+    .theme-toggle-track {
+        width: 32px;
+        height: 18px;
+    }
+
+    .theme-toggle-thumb {
+        width: 12px;
+        height: 12px;
+    }
+
+    body.dark-mode .theme-toggle-thumb {
+        left: 17px;
+    }
+}
+
+/* Landscape Mode on Mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 1rem 2rem;
+        min-height: auto;
+    }
+
+    .content {
+        padding: 1.5rem 2rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .badge {
+        margin-bottom: 1rem;
+    }
+
+    .description {
+        margin-bottom: 1.5rem;
+    }
+
+    .stats {
+        margin-top: 1.5rem;
+        padding-top: 1rem;
+    }
+
+    .loader-content {
+        gap: 1rem;
+    }
+
+    .loader-ring {
+        width: 40px;
+        height: 40px;
     }
 }
 
