@@ -625,24 +625,74 @@ function initFormHandler() {
 
     if (!form) return;
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+    // form.addEventListener('submit', (e) => {
+    //     e.preventDefault();
 
-        submitBtn.textContent = 'Joining...';
-        submitBtn.disabled = true;
+    //     submitBtn.textContent = 'Joining...';
+    //     submitBtn.disabled = true;
 
-        setTimeout(() => {
+    //     setTimeout(() => {
+    //         submitBtn.textContent = 'Joined! ✓';
+    //         submitBtn.classList.add('success');
+    //         successMessage.classList.add('show');
+
+    //         const currentCount = parseInt(waitlistCount.textContent.replace(/,/g, ''));
+    //         animateCounter(currentCount, currentCount + 1);
+
+    //         form.reset();
+    //     }, 1500);
+    // });
+
+    form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const emailInput = form.querySelector('input[name="email"]');
+    const email = emailInput?.value.trim();
+
+    if (!email || !email.includes('@')) {
+        alert('Please enter a valid email address.');
+        submitBtn.disabled = false;
+        return;
+    }
+
+    submitBtn.textContent = 'Joining...';
+    submitBtn.disabled = true;
+
+    try {
+        const response = await fetch('https://greyai.app.n8n.cloud/webhook/ec0cd3e4-87b0-4d52-b23e-3d642f2e3b80', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ email })
+        });
+
+        if (response.ok) {
+            // ✅ Success — show your existing UI feedback
             submitBtn.textContent = 'Joined! ✓';
             submitBtn.classList.add('success');
             successMessage.classList.add('show');
 
-            const currentCount = parseInt(waitlistCount.textContent.replace(/,/g, ''));
+            const currentCount = parseInt(waitlistCount.textContent.replace(/,/g, '')) || 0;
             animateCounter(currentCount, currentCount + 1);
 
             form.reset();
-        }, 1500);
-    });
+        } else {
+            // ❌ n8n returned an error (e.g. duplicate, validation fail)
+            const errorData = await response.json().catch(() => ({}));
+            console.error('n8n error:', errorData);
+            throw new Error('Submission failed');
+        }
+    } catch (error) {
+        console.error('Network or submission error:', error);
+        submitBtn.textContent = 'Try again';
+        submitBtn.disabled = false;
+        alert('Oops! Could not join the waitlist. Please check your connection and try again.');
+    }
+});
 }
+
+
 
 // ===========================================
 // Counter Animation
