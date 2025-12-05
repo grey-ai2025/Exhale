@@ -621,7 +621,6 @@ function initFormHandler() {
     const form = document.getElementById('waitlistForm');
     const submitBtn = document.getElementById('submitBtn');
     const successMessage = document.getElementById('successMessage');
-    const waitlistCount = document.getElementById('waitlistCount');
 
     if (!form) return;
 
@@ -672,9 +671,6 @@ function initFormHandler() {
             submitBtn.textContent = 'Joined! ✓';
             submitBtn.classList.add('success');
             successMessage.classList.add('show');
-
-            const currentCount = parseInt(waitlistCount.textContent.replace(/,/g, '')) || 0;
-            animateCounter(currentCount, currentCount + 1);
 
             form.reset();
         } else {
